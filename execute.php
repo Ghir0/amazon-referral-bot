@@ -47,10 +47,10 @@ if(isset($message['text']))
   {
 	//$response = "Wrong! This is not an Amazon link, retry!";
   }
-  elseif(strcmp($array1[0], "www") === 0 && strcmp($array1[1], "amazon") === 0 && strcmp($array1[2], "it") === 0 && $array1[3] ==null)
+  else
   {
 	//$response = "This doesn't work, send me an Amazon link";
-	  $response = "http://amzn.to/2f8aTvW";
+	  //$response = "http://amzn.to/2f8aTvW";
   }
 }
 /*
@@ -65,7 +65,14 @@ function set_referral_URL($url){
 	$key = array_search('dp', $path);
 	if($key==''){$key = array_search('d', $path);}
 	$ASIN = $path[$key+1];
+	if (strcmp($ASIN,"")=== 0)
+	{
+		$url_edited="http://amzn.to/2f8aTvW"
+	}
+	else
+	{
 	$url_edited = "https://www.amazon.it/dp/".$ASIN."?tag=".$referral;
+	}
 	return $url_edited;
 }
 
