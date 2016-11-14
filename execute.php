@@ -47,9 +47,10 @@ if(isset($message['text']))
   {
 	//$response = "Wrong! This is not an Amazon link, retry!";
   }
-  else
+  elseif(strcmp($array1[0], "www") === 0 && strcmp($array1[1], "amazon") === 0 && strcmp($array1[2], "it") === 0 && $array1[3] ==null)
   {
 	//$response = "This doesn't work, send me an Amazon link";
+	  $response = "http://amzn.to/2f8aTvW";
   }
 }
 /*
