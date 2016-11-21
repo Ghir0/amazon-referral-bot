@@ -33,11 +33,13 @@ if(isset($message['text']))
   $array1 = explode('.', $text_url_array[1]);
   $dominio = $array1[1];
 
+  /* NEW LINK PARSER*/
+  $link_array = parse_url($text_url_array[1]);
   if(strpos($text, "/start") === 0 )
   {
 	$response = "Ciao $firstname! \nMandami un link Amazon o condividilo direttamente con me da altre app! \nTi rispondero' con il link affiliato del mio padrone!";
   }
-  elseif(strcmp($dominio,"amazon") === 0)
+  elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['host']!= null)
   {	  
 	//new parser:
 	$url_to_parse = $text_url_array[1];
@@ -50,10 +52,19 @@ if(isset($message['text']))
 	$response = "Ecco fatto: $obj_desc\n$worldsym  $url_affiliate";
 	
   }
+	 elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['host']== null)
+  {	  
+	$response = "http://amzn.to/2gv0EX1";
+	
+  }
    elseif(strpos($text, "/link") === 0 && strlen($text)<6 )
   {
 	   //$response = "Incolla l'URL Amazon da convertire dopo il comando /link";
-   }
+  }
+  elseif($array)
+  {
+  }
+	
 }
 /*
 *
