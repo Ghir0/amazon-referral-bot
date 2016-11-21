@@ -39,7 +39,7 @@ if(isset($message['text']))
   {
 	$response = "Ciao $firstname! \nMandami un link Amazon o condividilo direttamente con me da altre app! \nTi rispondero' con il link affiliato del mio padrone!";
   }
-  elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['path']!= null)
+  elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['host']!= null)
   {	  
 	//new parser:
 	$url_to_parse = $text_url_array[1];
@@ -52,7 +52,7 @@ if(isset($message['text']))
 	$response = "Ecco fatto: $obj_desc\n$worldsym  $url_affiliate";
 	
   }
-	 elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['path']== null)
+	 elseif(strcmp(strcmp($dominio,"amazon") === 0 && $link_array['host']== null)
   {	  
 	$response = "http://amzn.to/2gv0EX1";
 	
