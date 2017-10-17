@@ -68,6 +68,22 @@ function set_referral_URL($url){
 	$url_edited = "https://www.amazon.it".$parsed_url_array['path']."?tag=".$referral.$seller;
 	return $url_edited;
 }
+/*
+*
+* crea il link con referral di gearbest 
+*/
+function set_referral_URL_GB($url){
+	$referral = "10851947";
+	$url_edited = "";
+	$parsed_url_array = parse_url($url);
+	
+	$seller = strstr($parsed_url_array['query'], 'm=');
+	
+	$parsed = extract_unit($fullstring, 'm=', '&');
+	//$seller = "&".$seller;
+	$url_edited = "http://www.gearbest.com".$parsed_url_array['path']."?lkid="/*.$referral.$seller*/;
+	return $url_edited;
+}
 //nuovo parser
 function parse_text($string){
 	$string2 = str_replace("/link", "", $string);
