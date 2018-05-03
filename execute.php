@@ -57,7 +57,8 @@ if(isset($message['text']))
 	$pollicesym =  json_decode('"\uD83D\uDC4D"');
 	$worldsym = json_decode('"\uD83C\uDF0F"');
 	$obj_desc = $testoLink;
-	$response = "$obj_desc\n$worldsym  $url_affiliate";
+	$url_affiliate_short = get_short_url($url_affiliate); 
+	$response = "$obj_desc\n$worldsym  $url_affiliate_short";
 	
   }
    elseif($dominioGearbest == "gearbest")
@@ -162,13 +163,25 @@ function get_string_between($string, $start, $end){
     return substr($string, $ini, $len);
 }
 
- 
-/*function clean_for_URL($string){
-	$cleaned_string = explode(' ',strstr($string,'https://'))[0];
-	if(strcmp($cleaned_string,"false") == "0"){ $cleaned_string = explode(' ',strstr($string,'http://'))[0]; }
-	return $cleaned_string;
-}
-*/
+function get_short_url($url) {
+    $ch = curl_init("http://goo.gl/api/url?url=" . urlencode($url));
+    curl_setopt($ch, CURLOPT_POST      ,1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    if($result = curl_exec($ch))
+    {
+      $json = json_decode($result);
+      if($error = ($json->error_message))
+      {
+        echo "$error";
+        exit;
+      }
+      $short_url = $json->short_url;
+      return "$short_url";
+    } else
+    {
+      echo curl_error($ch);
+    }
+  }
 
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $chatId, "text" => $response);
