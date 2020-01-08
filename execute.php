@@ -87,7 +87,7 @@ if(isset($message['text']))
 * prende un link amazon, estrapola l'ASIN e ricrea un link allo stesso prodotto con il referral 
 */
 function set_referral_URL($url){
-	$referral = "miketama-21";
+	$referral = "diev-21";
 	$url_edited = "";
 	$parsed_url_array = parse_url($url);
 	
@@ -167,7 +167,7 @@ function get_string_between($string, $start, $end){
 function make_bitly_url($url,$login,$format = 'xml',$version = '2.0.1')
 {
 	//create the URL
-	$bitly = 'http://api.bit.ly/shorten?version='.$version.'&longUrl='.urlencode($url).'&login='.$login.'&apiKey=R_c7d78316d223d5a1d7827d58d80e76be'.'&format='.$format;
+	$bitly = 'http://api.bit.ly/shorten?version='.$version.'&longUrl='.urlencode($url).'&login='.$login.'&apiKey=5b83fb1d77b38c78a12a0c0dd0980b9b20a72942'.'&format='.$format;
 	
 	//get the url
 	//could also use cURL here
