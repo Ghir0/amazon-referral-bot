@@ -31,7 +31,7 @@ if(isset($message['text']))
   $arr = explode("http", $text, 2);
   $testoLink = $arr[0];
   
-  $dominioAmazon = get_string_between($text, "://www.", ".to;
+  $dominioAmazon = get_string_between($text, "://www.", ".to);
   $dominioGearbest = get_string_between($text, "://www.", ".com");
 	
   //NUOVO PARSER:
@@ -47,7 +47,7 @@ if(isset($message['text']))
   {
 	$response = "Ciao $firstname! \nMandami un link Amazon o condividilo direttamente con me da altre app! \nTi rispondero' con il link affiliato del mio padrone! Grazie mille!\n\nCreated by http://www.webemento.com";
   }
-  elseif($dominioAmazon == "amazon")
+  elseif($dominioAmazon == "amzn")
   {	  
 	//new parser:
 	$url_to_parse = $text_url_array[0];
