@@ -2,7 +2,7 @@
 
 // PARAMETRI DA MODIFICARE
 $WEBHOOK_URL = 'https://fabiobott.herokuapp.com/execute.php';
-$BOT_TOKEN = '{1022544550:AAFXkbh1TFRZ3VJ_2ngbP2P2DZI6N5oNLh8}';
+$BOT_TOKEN = '1022544550:AAFXkbh1TFRZ3VJ_2ngbP2P2DZI6N5oNLh8';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
 $API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
